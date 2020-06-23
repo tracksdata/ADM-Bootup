@@ -1,0 +1,113 @@
+
+billing-service
+----------------
+	- data / model
+	- layers
+		a. data/repository ==> persistence logic
+		b. service layer   ==> processing logic 
+		c. web layer 	   ==> request & response logic
+		.....
+
+  e.g
+  ----
+   1. PriceMatrixImpl
+   		- getItemPrice(itemCode):double
+   	2. BillingImpl 
+   		- getTotalPrice(cart) : double
+   
+  --------------------------------------------
+  
+  Types of Objects basically? 2 types
+  1. Dependency object ==> Independent objects. Never depends on other classes.
+  2. Dependent object  ==> Depends on Dependency objects. 
+  
+  ------------------------------------
+  design & performance issues
+  ------------------------------------
+  
+  
+  -> dependent and dependency are tightly-coupled
+  		==> Modules can't extend with new features
+  -> too many duplicate/dependency instances are created & discarded.
+  		==> slow, memory/resource are high 
+  -> unit-testing not possible
+     
+     
+  why these issues happened?
+  ----------------------------
+  -> dependent class itself creating it's own dependency / dependency class objects
+  
+  what is the solution?
+  -----------------------
+  -> don't create dependency objects in the dependent classes directly
+  -> use factory-look up techniques instead.
+  
+  limitations on factory-lookup
+  ----------------------------------
+  -> JNDI location is tightly binded. (factory location tight coupling)
+  
+  Then what is the best solution?
+  --------------------------------
+  -> don't create / lookup, get/injected by 'third-party/container' (Inversion of Control) - IoC 
+  
+  
+   Dependency Injection (DI)
+   -----------------------
+   -> Injecting / passing dependency class object to dependent class object
+   
+   How many ways can DI implemented? 2 ways
+   1. Constructor based DI
+   2. Setter based DI
+   
+   
+   
+    2. Setter based DI
+    --------------------
+    Create a setter to dependency class object in the dependent class.
+    
+  ------------------------------------
+     Modules in Spring 
+     1. Core
+     2. AOP -> Transactions
+     3. Data 
+     	-> JDBC Template
+     	-> ORM 
+     4. Web MVC
+     	-> Web Flow
+     	-> Rest API
+     5. Security
+
+     
+     ---------------------------------
+     
+     
+     How to Create Spring Application?
+     
+     1. Download Spring jars and import in the project (jars-> Spring dependencies)
+     2. Use Maven to automate downloading of Spring dependencies
+     
+     
+  
+  
+  
+  
+  
+  
+  
+  
+  		
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   		
