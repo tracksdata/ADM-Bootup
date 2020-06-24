@@ -1,0 +1,106 @@
+Shopping APP
+	- data / model
+	- layers
+		a. data/repository ==> persistence logic
+		b. service layer   ==> processing logic 
+		c. web layer	   ==> request & response logic
+
+   e.g
+   ----
+   1. PriceMatrixImpl ==> persistence logic 
+   		-> getItemPrice(ItemCode):double
+   2. BillingImpl	  ==> processing logic
+   		-> getTotalPrice(cart): double
+   		
+   3. ProductController=> web logic/ request and response
+   		-> GET mapping request to load products into page
+   		-> POST mapping to post order to the server
+   		
+   
+   -----------------------------------
+   Types of Objects? ==>  two types
+   1. Dependency object: They never dependent on any other class
+   2. Dependent object :Always depends on Depdendency classes
+   
+   --------------------------
+   design & performance issues 
+   --------------------------
+   -> dependent & dependency tight-coupled
+   	  => module can not extend with new features easily
+   -> too many dependency class instances created and discarded
+   	  => slow, memory / resources use is high
+   -> unit testing is not possible
+   	  => dev & bug fix is slow
+   	
+   why these issues happened?
+   -----------------------------
+   -> dependent class itself creating dependency object
+   
+   solution?
+   ---------
+   -> don't create dependency object in the dependent directly
+   -> instead use factory-look up techniques
+   
+   limitations using factory-look up
+   ---------------------------------
+   => JNDI / factory location is tight coupled with dependent class
+   
+   what is the best solution?
+   ----------------------------
+   -> don't create/look up, instead get/injected by 'some-one'/containers (IoC) Inversion of Control
+   
+   What is Dependency Injection? (DI)
+   -----------------------------------
+   -> Injecting dependency object to the dependent object is DI
+   
+   	  
+    How many ways DI can be implemented: 2 ways
+    1. setter based DI
+    2. constructor based DI
+    
+   	  
+   	  
+   	1. setter based DI
+   	-------------------
+   	-> create setter for dependency class in dependent
+   	
+   	
+   	Spring Framework
+   	-------------------
+   	-> Spring manages all the infrastructure of you app
+   	   so that we dont need to write plumbing work in the app
+   	   
+   	   
+   	 Modules in Spring
+   	 -----------------------------------
+   	 1. Spring Core - JAVA SE basic programming
+   	 2. Spring AOP  - Transaction management
+   	 3. Spring DATA
+   	 		-> JDBC Template
+   	 		-> ORM
+   	 4. Spring Web
+   	 		-> Web MVC
+   	 		-> Web flow
+   	 		-> Restful web services
+   	 5. Spring Security
+   	 
+   	 ------------------------------------
+   	  
+   
+   How to create Spring application: 2 ways
+   1. Downlaod spring jars and include in the app
+   2. Use Maven tool to automate Spring dependencies
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
+	
+	
