@@ -1,0 +1,100 @@
+APP Structure
+------------------
+
+Layers
+--------
+1. database layer    ==> persisting logic
+2. service layer     ==> Processing logic
+3. web layer         ==> request and response logic
+----------------------------------------------
+
+  e.g
+  
+  Shopping APP
+  ---------------
+  1. ProductDaoImpl 
+  2. ProductServiceImpl
+  3. ProductControl
+  
+  package structure
+  com.cts.product.config
+  com.cts.product.dao
+  com.cts.product.service
+  com.cts.product.controller
+  com.cts.product.entity
+  com.cts.product.utils
+  
+  
+  ---------------------------
+  
+  
+  What is DI?
+  --------------
+  Injecting Dependency object to the dependent object  is Dependency injection
+  
+  
+  Ways to implement DI : 2 ways
+  -------------------------------
+  1. constructor based DI
+  2. setter based DI
+  
+  2. setter based DI
+  -------------------
+  -> create a setter for dependency object in dependent class.
+  
+  
+  what is the issues with this app?
+  -----------------------------------
+  1. developer has to create dependency class objects
+  2. developer has to create dependent class objects
+  3. developer has to design setter or constructor based DI logic
+  4. developer has to inject dependency objects to dependents manuvally
+  
+  5. developer has to create sensitive class objects like DAO in main/controller logic
+  
+  
+  
+  What is the best solution to avoid all these issues?
+  ------------------------------------------------------
+  
+  -> use spring framework to address all these issues
+  
+  Modules in Spring
+  ----------------------------------------------
+  1. Spring Core -> Java SE related logics
+  2. Spring AOP  -> transaction management 
+  3. Spring Data
+  		-> JDBC Template
+  		-> ORM
+  4. Spring Web
+  		-> Spring Web MVC
+  		-> Spring Web Flow
+  		-> Restful web services
+  5. Spring Security
+  
+  -----------------------------------------------
+  
+  
+  How to create spring application?
+  -----------------------------------
+  1. download spring jars from spring official web site
+  2. use any automated Dependency management tool like Maven / Gradle .. etc to download spering dependencies
+  
+  
+  Maven Tool
+  -------------
+  --> JDK 5.0 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
