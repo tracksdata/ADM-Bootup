@@ -17,7 +17,7 @@ public class ProductController {
 
 	@Autowired
 	private ProductService prodDao;
-	
+
 	@RequestMapping("/")
 	public String welocme() {
 		return "index";
@@ -45,30 +45,38 @@ public class ProductController {
 
 		return "productform";
 	}
-	
-	@RequestMapping("/saveProductV2")
-	public String saveproductV2(@ModelAttribute Product prod,Model data) {
+
+	// load product into form for uodate
+
+	@RequestMapping("/update")
+	public String update(@ModelAttribute Product prod) {
+
+		System.out.println("====> ID: "+prod.getId());
 		
-		prodDao.save(prod);
-		
-		data.addAttribute("msg", "Product Saved Successfully");
-		
-		
-		return "productform";
+		return null;
 	}
-	
-	
+
+	@RequestMapping("/saveProductV2")
+	public String saveproductV2(@ModelAttribute Product prod, Model data) {
+
+		prodDao.save(prod);
+
+		data.addAttribute("msg", "Product Saved Successfully");
+
+		return "redirect:/listAll";
+	}
+
 	// List all produst to jsp
-	
+
 	@RequestMapping("/listAll")
 	public String listAll(Model data) {
-		
-		List<Product> prods=prodDao.findAll();
-		
+
+		List<Product> prods = prodDao.findAll();
+		System.out.println(prods);
+
 		data.addAttribute("prods", prods);
-		
+
 		return "products";
 	}
-	
-	
+
 }

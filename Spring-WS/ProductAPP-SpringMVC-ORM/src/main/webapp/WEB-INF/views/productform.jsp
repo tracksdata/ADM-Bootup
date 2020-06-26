@@ -14,59 +14,59 @@
 </head>
 <body class="container">
 
-	
+
 
 	<jsp:include page="menu.jsp" />
 
 	<hr />
 
+	<div class="row">
+		<div class="col-2"></div>
+		<div class="col-8">
+			<div class="card">
+				<div class="card-header">Product Form</div>
+				<div class="card-body">
+					<form action="saveProductV2" method="post" autocomplete="off">
 
-	<div class="col-5 col-md-5 col-ld-5 text-cengter">
+						<div class="form-group">
+							<label>Product Id</label>
+							<input name="id" class="form-control">
+						</div>
 
-		<div class="card">
-			<div class="card-header">Product Form</div>
-			<div class="card-body">
+						<div class="form-group">
+							<label>Product Name</label>
+							<input name="name" class="form-control">
+						</div>
 
-				<form action="saveProductV2" method="post" autocomplete="off">
+						<div class="form-group">
+							<label>Product Price</label>
+							<input name="price" class="form-control">
+						</div>
 
-					<div class="form-group">
-						<lable>Product Id</lable>
-						<input name="id" class="form-control">
-					</div>
+						<div class="form-group">
+							<label>Description</label>
+							<textarea name="description" class="form-control"></textarea>
+						</div>
 
-					<div class="form-group">
-						<lable>Product Name</lable>
-						<input name="name" class="form-control">
-					</div>
-
-					<div class="form-group">
-						<lable>Product Price</lable>
-						<input name="price" class="form-control">
-					</div>
-
-					<div class="form-group">
-						<lable>Product Id</lable>
-						<textarea name="description" class="form-control"></textarea>
-					</div>
-
-					<div class="form-group">
-						<span>${msg} </span>
-					</div>
+						<div class="form-group">
+							<span>${msg} </span>
+						</div>
 
 
-					<div class="form-group text-center">
-						<button class="btn btn-primary">Save</button>
-						<button class="btn btn-danger">Cancel</button>
-					</div>
+						<div class="form-group text-center">
+							<button class="btn btn-primary">Save</button>
+							<button class="btn btn-danger">Cancel</button>
+							<button type="reset" class="btn btn-warning">Reset</button>
 
-				</form>
+						</div>
+
+					</form>
+				</div>
 			</div>
+
 		</div>
-
-
-
-
 	</div>
+
 
 
 

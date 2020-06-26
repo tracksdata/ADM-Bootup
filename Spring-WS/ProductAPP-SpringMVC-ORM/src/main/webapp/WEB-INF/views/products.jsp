@@ -17,13 +17,6 @@
 	<jsp:include page="menu.jsp" />
 
 
-
-	<div class="alert alert-info text-center">
-		<h3>Products List</h3>
-	</div>
-
-
-
 	<div class="card">
 	
 	<div class="card-header text-center bg-warning">Products from Abc Store</div>
@@ -45,7 +38,7 @@
 				<c:forEach items="${prods}" var="product">
 					<tbody>
 						<tr>
-							<td>${product.id}</td>
+							<td><a href="./update?product=${product}">${product.id}</a></td>
 							<td>${product.name}</td>
 							<td>${product.description}</td>
 							<td>${product.price}</td>

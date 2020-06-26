@@ -14,7 +14,7 @@
 </head>
 <body class="container">
 	<div class="alert alert-info text-center">
-		<h1>Welcome to my Abc Store</h1>
+		<h1>Welcome to ABC Store</h1>
 	</div>
 
 </body>

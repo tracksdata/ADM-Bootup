@@ -38,7 +38,8 @@ public class ProductDaoImpl implements ProductDao {
 	// list all products
 	@Override
 	public List<Product> findAll() {
-		return null;
+		String qry="from Product";
+		return sf.getCurrentSession().createQuery(qry).list();
 	}
 
 	// find by id
