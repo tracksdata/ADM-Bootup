@@ -1,0 +1,131 @@
+Spring Core and MVC Basics
+--------------------------------
+
+layers in application
+-----------------------
+    - data/model/entity/pojo
+	- layers
+		a. data / repository layer ==> persisting logic
+		b. service                 ==> processing
+		c. web layer               ==> request and response logic
+		...
+		
+		
+  e.g
+  
+  ecart-app
+  ----------
+  1. PriceMatrixImpl
+  		-> getItemTotal(String itemCode)
+  2. BillingServiceImpl
+  		-> getTotalPrice(String[] cart)
+  		
+  
+  -------------------------------------------------
+  
+  package structure (common structure)
+  
+  1.com.cts.product.config
+  2.com.cts.product.model
+  3.com.cts.product.dao
+  4.com.cts.product.service
+  5.com.cts.product.utils
+  6.com.cts.product.controller  		
+ 
+ --------------------------------------------------
+ 
+  Types of Objects in Java? : 2 types
+  1. dependency object: dependency objects. works indenpendently. never dependent on other classes
+  2. dependent object:  dependent objects always depends on dependency objects
+  
+
+ Design and performance issues
+ ---------------------------------
+ 	-> dependent & dependency are tight coupled
+ 		=> module can't extend with new features easily
+ 	-> too many duplicate instances / dependency instances are created and discarded.
+ 		=> slow, memory/resources use is very high
+    -> unit-testing is not possible
+    	=> dev & bug fix is slow
+    
+    
+  why these issues happened?
+  -----------------------------
+  -> dependent class itself creating dependency class object
+  
+  solution?
+  ----------
+  -> do not create dependency objects in dependent classes. Instead use factory-look technique
+  
+  limitations of using factory-look up
+  --------------------------------------
+  -> factory location tight coupled with dependency classes
+  
+   what is the best solution?
+   ---------------------------
+   ==> don't create/look up. Instead ask 'some-one' to get/inject (Inversion of control) Ioc
+   
+   How to implement Ioc concepts? : Dependency Injection (DI)
+   
+   What is Dependency Injection?
+   --------------------------------
+ 	-> Injecting dependency obj to dependent object 
+ 	
+ 	How many ways can be DI implemented? : 2 ways
+ 	
+ 	1. Setter based DI
+ 	2. Constructor based DI
+ 	
+ 	
+ 	 	1. Setter based DI
+ 		---------------------
+ 			-> create setter for dependency property in dependent class at class level
+ 			
+ 	
+       How many ways can be  Spring Application created? : 2 ways
+       ---------------------------------------------------
+       
+       1. Download all spring jars from spring official web side and import in the application
+       2. Use any dependency management / build tool like Maven, Gradle .. etc to download all dependencies
+       
+ 
+      
+ 
+   Spring Framework modules
+    ---------------------------------------------
+    1. Spring Core -> 	java se related apps
+    2. spring AOP  ->    transaction related
+    3. spring data
+    		-> spring jdbc
+    		-> spring orm
+    4. spring web
+    		-> web mvc
+    		-> web flow
+    		-> restful web services
+    5. spring security
+    
+    -----------------------------------------------
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+ 
+		
