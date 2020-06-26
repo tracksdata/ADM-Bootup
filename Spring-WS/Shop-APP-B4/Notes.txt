@@ -1,0 +1,139 @@
+Spring Core basics
+---------------------
+
+Shop Application
+--------------------
+
+	- data / model 
+	- layers
+		a. data/repository   ==> persisting logic
+		b. service layer     ==> processing logic 
+		c. web layer         ===> request & response logic
+		
+	eg. 
+		ProductDaoImpl
+			- saveProduct
+		ProductServiceImpl
+			- processProduct
+	--------------------------------------------------------------
+	
+	
+	Package structure
+	------------------
+	a. com.cts.product.config
+	b. com.cts.product.entity
+	c. com.cts.product.dao
+	d. com.cts.product.service
+	e. com.cts.product.utils
+	f. com.cts.product.controller
+	
+	---------------------------------------
+	
+	
+	Types of objects in java? : 2 types
+	1. dependency object : work independently. never dependent on any other class objects...
+	2. dependent object  : always dependents on dependency classes.
+	
+	
+	
+	----------------------------------
+	design & and performance issues
+	-----------------------------------
+	
+	-> dependent and dependency classes are tight coupled
+		=> module can not extend with new features easily
+	-> too many duplicate instances / dependency objects are created and discarded.
+		=> slow, memory / resources use is high
+	-> unit-testig is not possible
+		=> dev & bug fix is very slow
+		
+		
+
+    why these issues happened?
+    ----------------------------
+    -> dependent class itself creating dependency objects / its own dependency
+    
+    solution?
+    -> do not create dependency object from dependent class.
+    -> instead, use factory-look up technique
+    
+    issues with factory-look up technique
+    --------------------------------------
+    -> location of factory-look up is tight binded with dependent
+    
+    
+    what is the best solution?
+    -----------------------------
+    => don't create/look up, instead get/injected by 'some one'. Inversion of Principle (Ioc)
+    
+    
+    how to use Ioc or inject dependency to dependent : (DI)
+    
+    Dependency Injection (DI)
+    ----------------------------
+    -> Injecting Dependency object to dependent object.
+    
+    
+    
+    how many ways  Dependency Injection can be injected: 2 ways
+    1. setter based injection
+    2. constructor based injection
+    
+    
+    
+   1. setter based injection
+   ----------------------------
+   -> create setter for dependency property in dependent class.
+   
+    
+    
+    What is Spring framework
+    ---------------------------
+    -> Spring framework manages to inject all dependency objects to dependent classes.
+    -> programmer can focus only on main business logic insted of writing all plumbing work.
+    
+    
+    How to create spring application: 2 ways
+    
+    1. download all spring jars from spring official web site and import in the app.
+    2. use any automatic dependency management tools like Maven / Gradle in the app.
+    
+    
+    
+    
+    
+    Spring Framework modules
+    ---------------------------------------------
+    1. Spring Core -> 	java se related apps
+    2. spring AOP  ->    transaction related
+    3. spring data
+    		-> spring jdbc
+    		-> spring orm
+    4. spring web
+    		-> web mvc
+    		-> web flow
+    		-> restful web services
+    5. spring security
+    
+    -----------------------------------------------
+    
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
