@@ -1,0 +1,116 @@
+Application development core basics
+---------------------------------------
+
+ - data / model
+ - layer(s)
+ 	a. data/repository layer ==> persisting layer
+ 	b. service layer         ==> processing logic
+ 	c. web layer             ==> request and response logic
+ 	...
+ 	
+ 	e.g
+ 	
+ 		1. ProductDaoImpl
+ 			- getItemPrice(int itemCode)
+ 		2. BillingServiceImpl
+ 			- getTotalPrice(Integer[] cart) 
+ 		---------------------------------------------------------
+ 		
+ 	
+ 		standard package structure 
+ 		----------------------------
+ 		1. com.cts.product.config
+ 		2. com.cts.product.model
+ 		3. com.cts.product.dao
+ 		4. com.cts.product.service
+ 		5. com.cts.product.controller
+ 		6. com.cts.product.utils
+ 		
+ 		-----------------------------
+ 		
+ 		
+ 		types of java objects: 2 types
+ 		1. dependency object : never depends on any  other class objects. works independently
+ 		2. dependent object  : always depends on dependency objects. 
+ 		
+ 		
+ 		---------------------------------
+ 		design and performance issues
+ 		---------------------------------
+ 		
+ 		-> dependent and dependency are tight-coupled
+ 			=> module can't extend with new features easily
+ 		-> too many duplicate instances (dependency class objects) created and discarded
+ 			=> slow, memory / resource usage is high
+ 		-> unit-testing not possible
+ 			=> dev & bug fix is slow
+ 			
+ 		
+ 		why these issues happened?
+ 		-----------------------------
+ 		-> dependent itself creating dependency class object.
+ 		
+ 		what is the soultion?
+ 		----------------------
+ 		-> don't create, instead use factory look-up technique. (JNDI .. etc)
+ 		
+ 		
+ 		limitations using factory look-up
+ 		---------------------------------
+ 		->  factory location is tight coupled with dependent class.
+ 		
+ 		what is the best solution?
+ 		---------------------------
+ 		-> don't create , or factory look-up, instead ask 'someone/container'. This called Inversion of Control (Ioc)
+ 		
+ 		
+ 		How can to implement Ioc here?
+ 		-------------------------------
+ 		-> using dependency injection principle 
+ 		
+ 		what is dependency injection or DI?
+ 		------------------------------------
+ 		-> Injecting dependency object to dependent object is called Dependency injection or DI
+ 		
+ 		How many ways DI can be implemented? : 2 ways
+ 		1. setter based 
+ 		2. constructor based
+ 		
+ 		
+ 		 
+ 		 1. setter based 
+ 		-------------------
+ 		-> create setter for dependency property / variable / field in the dependent class
+ 		
+ 		
+ 		
+ 		The best framework to automate dependency injection management
+ 		1. Spring
+ 		
+ 	
+ 	   How to create Spring application? : 2 ways
+ 	   ----------------------------------
+ 	   1. Download all spring jars from spring official web site and configure with java app
+ 	   2. use any automated dependency management tool like maven or gradle .. etc
+ 	   
+ 	   
+ 	   
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
