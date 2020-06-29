@@ -12,6 +12,15 @@ public class BillingServiceImpl implements BillingService {
 
 	@Autowired
 	private ProductDao prodDao;
+	
+
+	/*
+	@Autowired
+	public BillingServiceImpl(ProductDao prodDao) {
+		this.prodDao = prodDao;
+	}
+	
+	*/
 
 	@Override
 	public double getTotalPrice(Integer[] cart) {
